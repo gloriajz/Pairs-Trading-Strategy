@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pairs Trading Strategy Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1a1a1a;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    ul {
+      margin-left: 1.2rem;
+    }
+    code {
+      background: #eee;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f1f1f1;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pairs Trading Strategy Simulation</h1>
+    <p>Market-Neutral Modelling with Coca-Cola & Pepsi</p>
+  </header>
+  <main>
+    <section>
+      <h2>🔍 Project Overview</h2>
+      <p>This project implements a pairs trading strategy between Coca-Cola (KO) and PepsiCo (PEP) using Monte Carlo simulation. By modelling mean-reverting spread behavior and asset prices over 6 months, we evaluate expected profit and trading performance under realistic assumptions.</p>
+    </section>
+
+    <section>
+      <h2>📈 Objective</h2>
+      <p>Simulate 1,000,000 daily paths of KO–PEP spread using the Ornstein-Uhlenbeck process to identify arbitrage opportunities. Profit and loss are evaluated at January 31st and June 30th based on long/short positions derived from spread thresholds.</p>
+    </section>
+
+    <section>
+      <h2>⚙️ Methodology</h2>
+      <ul>
+        <li><strong>Data:</strong> Historical daily close prices from 1990 to present (BookKOPEP.csv)</li>
+        <li><strong>Spread Modelling:</strong> Ornstein-Uhlenbeck process for mean-reverting spread</li>
+        <li><strong>Price Simulation:</strong> Pepsi simulated using Geometric Brownian Motion; KO derived from simulated spread</li>
+        <li><strong>Parameter Estimation:</strong> Mean (μ), volatility (σ), and mean reversion speed (θ) via linear regression</li>
+        <li><strong>P&L Evaluation:</strong> Strategy profit is computed at two checkpoints using number of shares and price levels</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📊 Results</h2>
+      <ul>
+        <li><strong>Expected Profit:</strong> Positive mean profit at both checkpoints</li>
+        <li><strong>Risk Measures:</strong> Percentiles (5th/95th) of simulated returns quantify downside and upside bounds</li>
+        <li><strong>Entry Rule:</strong> When spread > 1 standard deviation from mean</li>
+        <li><strong>Exit Rule:</strong> When spread returns to mean or when target profit is met</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>💡 Conclusions</h2>
+      <p>The simulation supports potential profitability of the pairs trading strategy. However, risk remains due to market volatility and model limitations. Future improvements may include:</p>
+      <ul>
+        <li>Incorporating transaction costs</li>
+        <li>Introducing adaptive trading thresholds</li>
+        <li>Enhancing realism with multi-factor volatility models</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📁 Repository Contents</h2>
+      <ul>
+        <li><code>Numerical_Methods_Project_1.ipynb</code> — Python code for simulation</li>
+        <li><code>BookKOPEP.csv</code> — Historical price data</li>
+        <li><code>Project 1 PPT.pptx</code> — Project presentation slides</li>
+        <li><code>index.html</code> — Project summary web page (this file)</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Gloria Yang | Simulation Project for Pairs Trading Strategy
+  </footer>
+</body>
+</html>
